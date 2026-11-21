@@ -1,4 +1,5 @@
 name: Qualify Model Registry source
+run-name: Qualify model-registry at ${{ inputs.expected_source_sha }}
 
 on:
   workflow_dispatch:
