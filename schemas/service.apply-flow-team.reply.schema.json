@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.apply-flow-team.reply.schema.json",
+  "title": "model-registry.service.apply-flow-team reply",
+  "description": "Status 200 when the Flow's LiteLLM team holds the limit; 503 model_gateway_unavailable when LiteLLM does not answer. Reply header status carries the HTTP status; an error reply body is the error object.",
+  "anyOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/error"
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team_id", "flow_id", "flow_revision", "budget_reset_at"],
+      "properties": {
+        "team_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_revision": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "budget_reset_at": {
+          "$ref": "defs.schema.json#/$defs/nullableTimestamp"
+        }
+      }
+    }
+  ]
+}

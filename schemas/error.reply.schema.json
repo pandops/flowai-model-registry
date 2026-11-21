@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/error.reply.schema.json",
+  "title": "model-registry error reply",
+  "description": "Every error reply of every model-registry operation. Reply header status carries the HTTP status; an error reply body is the error object. request_id is absent only when the request carried no valid request_id header.",
+  "$ref": "defs.schema.json#/$defs/error"
+}

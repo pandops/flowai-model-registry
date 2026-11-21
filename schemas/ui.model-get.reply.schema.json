@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/ui.model-get.reply.schema.json",
+  "title": "model-registry.ui.model-get reply",
+  "description": "Status 200 (201 for create) with the model and the reply header ETag, or an error. model-archive and model-unarchive reply 204 with an empty body or an error. Reply header status carries the HTTP status; an error reply body is the error object.",
+  "anyOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/error"
+    },
+    {
+      "$ref": "defs.schema.json#/$defs/model"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/event.task-key-revoked.schema.json",
+  "title": "model-registry.event.task-key-revoked",
+  "description": "LiteLLM confirmed the revocation of a claim's key after the claim ended. Subject model-registry.event.task-key-revoked.pub on ALL_EVENT; headers team (decimal team_id) and Nats-Msg-Id model-registry-<publisher_seq>. Carries no provider credential, master key or virtual key.",
+  "allOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/envelope"
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "publisher",
+    "publisher_seq",
+    "team_id",
+    "occurred_at",
+    "kind",
+    "task_id",
+    "attempt",
+    "claim_seq",
+    "cause"
+  ],
+  "properties": {
+    "publisher": true,
+    "publisher_seq": true,
+    "team_id": true,
+    "occurred_at": true,
+    "kind": {
+      "const": "task-key-revoked"
+    },
+    "task_id": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "attempt": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "claim_seq": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "cause": {
+      "enum": ["released", "failed", "finished", "cancelled", "archived"]
+    }
+  }
+}

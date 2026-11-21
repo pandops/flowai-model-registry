@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.validate-models.reply.schema.json",
+  "title": "model-registry.service.validate-models reply",
+  "description": "Status 200 with one entry per requested alias in request order: availability no_access and owned false when the team does not own the alias; selectable only for an owned, not archived model without a pending archive or unarchive operation. Errors: 400 invalid_request, 503 service_unavailable. Reply header status carries the HTTP status; an error reply body is the error object.",
+  "anyOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/error"
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aliases"],
+      "properties": {
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["alias", "owned", "availability", "selectable"],
+            "properties": {
+              "alias": {
+                "type": "string"
+              },
+              "owned": {
+                "type": "boolean"
+              },
+              "availability": {
+                "enum": [
+                  "active",
+                  "paused",
+                  "archived",
+                  "unavailable",
+                  "no_access"
+                ]
+              },
+              "selectable": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

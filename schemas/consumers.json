@@ -1,0 +1,17 @@
+[
+  {
+    "durable": "model-registry",
+    "stream": "ALL_EVENT",
+    "filter_subjects": [
+      "executor-registry.event.executor_registered.sub",
+      "executor-registry.event.executor_removed.sub",
+      "executor.event.*.*.sub",
+      "task-manager.event.released.sub",
+      "task-manager.event.cancelled.sub",
+      "task-manager.event.archived.sub"
+    ],
+    "ack_policy": "explicit",
+    "deliver_policy": "all",
+    "max_ack_pending": 256
+  }
+]

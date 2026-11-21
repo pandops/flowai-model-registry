@@ -1,0 +1,306 @@
+{
+  "schemas": {
+    "executor/docker_openhands/schemas/check-request.schema.json": [
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "model-registry"
+    ],
+    "executor/docker_openhands/schemas/executor-event.schema.json": [
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "journal",
+      "model-registry",
+      "task-manager"
+    ],
+    "executor/k8s-openhands/schemas/check-request.schema.json": [
+      "executor_k8s_openhands",
+      "executor_docker_openhands",
+      "model-registry"
+    ],
+    "executor/k8s-openhands/schemas/executor-event.schema.json": [
+      "executor_k8s_openhands",
+      "executor_docker_openhands",
+      "journal",
+      "model-registry",
+      "task-manager"
+    ],
+    "svc/executor-registry/schemas/event.executor_registered.schema.json": [
+      "executor-registry",
+      "journal",
+      "model-registry",
+      "task-manager"
+    ],
+    "svc/executor-registry/schemas/event.executor_removed.schema.json": [
+      "executor-registry",
+      "journal",
+      "model-registry",
+      "task-manager"
+    ],
+    "svc/executor-registry/schemas/service.executor-type.reply.schema.json": [
+      "executor-registry",
+      "model-registry"
+    ],
+    "svc/executor-registry/schemas/service.executor-type.request.schema.json": [
+      "executor-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/defs.schema.json": [
+      "flow-registry",
+      "admin-panel",
+      "api-gateway",
+      "audit",
+      "env-registry",
+      "journal",
+      "model-registry",
+      "task-manager"
+    ],
+    "svc/flow-registry/schemas/service.alias-usage.reply.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/service.alias-usage.request.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/service.llm-settings.reply.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/service.llm-settings.request.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/service.restore-alias.request.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/flow-registry/schemas/service.retire-alias.request.schema.json": [
+      "flow-registry",
+      "model-registry"
+    ],
+    "svc/model-registry/schemas/audit.model-archive.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/audit.model-create.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/audit.model-get.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/audit.model-unarchive.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/audit.model-update.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/audit.models-list.schema.json": [
+      "model-registry",
+      "audit"
+    ],
+    "svc/model-registry/schemas/defs.schema.json": [
+      "model-registry",
+      "api-gateway",
+      "audit",
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "flow-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/edge.litellm-key.reply.schema.json": [
+      "model-registry",
+      "api-gateway",
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "flow-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/error.reply.schema.json": [
+      "model-registry",
+      "api-gateway",
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/event.model-archive-reconciled.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.model-availability-changed.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.model-create-compensated.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.model-unarchive-reconciled.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.orphan-key-revoked.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.spend-observed.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.task-key-extended.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.task-key-issued.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/event.task-key-revoked.schema.json": [
+      "model-registry",
+      "journal",
+      "task-manager"
+    ],
+    "svc/model-registry/schemas/executor.check.reply.schema.json": [
+      "model-registry",
+      "executor_docker_openhands",
+      "executor_k8s_openhands"
+    ],
+    "svc/model-registry/schemas/executor.check.request.schema.json": [
+      "model-registry",
+      "executor_docker_openhands",
+      "executor_k8s_openhands"
+    ],
+    "svc/model-registry/schemas/service.apply-flow-team.reply.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.apply-flow-team.request.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.flows-status.reply.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.flows-status.request.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.remove-flow-team.reply.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.remove-flow-team.request.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.validate-models.reply.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/service.validate-models.request.schema.json": [
+      "model-registry",
+      "flow-registry"
+    ],
+    "svc/model-registry/schemas/ui.model-archive.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-archive.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-create.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-create.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-get.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-get.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-unarchive.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-unarchive.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-update.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.model-update.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.models-list.reply.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/model-registry/schemas/ui.models-list.request.schema.json": [
+      "model-registry",
+      "api-gateway"
+    ],
+    "svc/task-manager/schemas/defs.schema.json": [
+      "task-manager",
+      "admin-panel",
+      "api-gateway",
+      "audit",
+      "env-registry",
+      "executor-registry",
+      "executor_docker_openhands",
+      "executor_k8s_openhands",
+      "journal",
+      "model-registry",
+      "source-controller"
+    ],
+    "svc/task-manager/schemas/event.archived.schema.json": [
+      "task-manager",
+      "env-registry",
+      "journal",
+      "model-registry"
+    ],
+    "svc/task-manager/schemas/event.cancelled.schema.json": [
+      "task-manager",
+      "journal",
+      "model-registry"
+    ],
+    "svc/task-manager/schemas/event.released.schema.json": [
+      "task-manager",
+      "journal",
+      "model-registry"
+    ],
+    "svc/task-manager/schemas/service.claim-current.reply.schema.json": [
+      "task-manager",
+      "env-registry",
+      "model-registry"
+    ],
+    "svc/task-manager/schemas/service.claim-current.request.schema.json": [
+      "task-manager",
+      "env-registry",
+      "model-registry"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/ui.models-list.reply.schema.json",
+  "title": "model-registry.ui.models-list reply",
+  "description": "Status 200 with a page, or an error. Reply header status carries the HTTP status; an error reply body is the error object.",
+  "anyOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/error"
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items", "next_cursor"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "maxItems": 200,
+          "items": {
+            "$ref": "defs.schema.json#/$defs/model"
+          }
+        },
+        "next_cursor": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  ]
+}

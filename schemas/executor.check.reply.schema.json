@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/executor.check.reply.schema.json",
+  "title": "model-registry.executor.<executor>.check reply",
+  "description": "Exactly one of: status 200 result ok with the pinned alias; status 200 result temporary with a reason; status 404 code claim_not_current; status 503 code service_unavailable. Never carries a claim token or key.",
+  "anyOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "model_alias"],
+      "properties": {
+        "result": {
+          "const": "ok"
+        },
+        "model_alias": {
+          "$ref": "defs.schema.json#/$defs/modelAlias"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "reason"],
+      "properties": {
+        "result": {
+          "const": "temporary"
+        },
+        "reason": {
+          "enum": [
+            "no_active_model",
+            "all_selected_models_paused",
+            "budget_exhausted",
+            "spend_observation_unavailable"
+          ]
+        }
+      }
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "defs.schema.json#/$defs/error"
+        },
+        {
+          "properties": {
+            "code": {
+              "enum": [
+                "claim_not_current",
+                "service_unavailable",
+                "invalid_request"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

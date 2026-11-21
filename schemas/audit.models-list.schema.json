@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/audit.models-list.schema.json",
+  "title": "model-registry.audit.models-list",
+  "description": "One message per operator model operation that passed context validation: every write (model-create, model-update, model-archive, model-unarchive) whether it succeeded or was rejected, and every rejected read (models-list, model-get). Subject model-registry.audit.<action>.pub on ALL_AUDIT; headers team (the operator's decimal team_id), Nats-Msg-Id model-registry-<publisher_seq> and request_id. Carries no provider key, master key or virtual key.",
+  "allOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/envelope"
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "publisher",
+    "publisher_seq",
+    "team_id",
+    "occurred_at",
+    "source_service",
+    "actor_type",
+    "actor_id",
+    "action",
+    "resource_type",
+    "resource_id",
+    "request_id",
+    "outcome",
+    "changes"
+  ],
+  "properties": {
+    "publisher": true,
+    "publisher_seq": true,
+    "team_id": true,
+    "occurred_at": true,
+    "source_service": {
+      "const": "model-registry"
+    },
+    "actor_type": {
+      "const": "operator"
+    },
+    "actor_id": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "action": {
+      "const": "models-list"
+    },
+    "resource_type": {
+      "const": "model"
+    },
+    "resource_id": {
+      "anyOf": [
+        {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "request_id": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "outcome": {
+      "enum": ["succeeded", "rejected"]
+    },
+    "reason": {
+      "type": "string",
+      "pattern": "^[a-z_]+$"
+    },
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model_name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "paused": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

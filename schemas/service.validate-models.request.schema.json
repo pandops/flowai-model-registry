@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.validate-models.request.schema.json",
+  "title": "model-registry.service.validate-models request",
+  "description": "Caller: flow-registry only. Header team (decimal team_id, or admin) and request_id; when team is decimal, body team_id must equal it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body"],
+  "properties": {
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team_id", "aliases"],
+      "properties": {
+        "team_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "aliases": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "string",
+            "maxLength": 300
+          }
+        }
+      }
+    }
+  }
+}

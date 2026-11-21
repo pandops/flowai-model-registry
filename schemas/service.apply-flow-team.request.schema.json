@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.apply-flow-team.request.schema.json",
+  "title": "model-registry.service.apply-flow-team request",
+  "description": "Caller: flow-registry only. Header team (decimal team_id, or admin) and request_id; when team is decimal, body team_id must equal it. Idempotent for the same (flow_id, flow_revision, flow_limit).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body"],
+  "properties": {
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team_id", "flow_id", "flow_revision", "flow_limit"],
+      "properties": {
+        "team_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_revision": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_limit": {
+          "$ref": "defs.schema.json#/$defs/flowLimit"
+        }
+      }
+    }
+  }
+}
