@@ -1,0 +1,128 @@
+[
+  {
+    "digest": "sha256:38040f017cd7c412165e72b92f478c7e0afa677f72802781a35c43e52def61c9",
+    "path": "schemas/event.executor_registered.schema.json",
+    "repository": "pandops/flowai-executor-registry",
+    "sourceRevision": "e257f61cfaac8249615477a4c54815c2f69637e1"
+  },
+  {
+    "digest": "sha256:b62158affd396f7412ed69e8b30126546442b83760be96c4b5bdfc8fb1105ef4",
+    "path": "schemas/event.executor_removed.schema.json",
+    "repository": "pandops/flowai-executor-registry",
+    "sourceRevision": "e257f61cfaac8249615477a4c54815c2f69637e1"
+  },
+  {
+    "digest": "sha256:4237d4b517462369877d393541cc62418964c25ad73291e0e061b4f9eda4098a",
+    "path": "schemas/service.executor-type.reply.schema.json",
+    "repository": "pandops/flowai-executor-registry",
+    "sourceRevision": "e257f61cfaac8249615477a4c54815c2f69637e1"
+  },
+  {
+    "digest": "sha256:10650ca25dd6b02810f49616cd16406288d54703b3c734a9b15364d30b22b01f",
+    "path": "schemas/service.executor-type.request.schema.json",
+    "repository": "pandops/flowai-executor-registry",
+    "sourceRevision": "e257f61cfaac8249615477a4c54815c2f69637e1"
+  },
+  {
+    "digest": "sha256:d26e3cea5ff72963de45b933c2eff365d04280cc00fee3c6e76668778f597077",
+    "path": "schemas/defs.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:d8da1956fbf825320014938171d05b8307691e2c1ccc789b7e0ef8ec5e16e29b",
+    "path": "schemas/service.alias-usage.reply.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:0a0f2d8d8ec0fe3f02f69abcd95f5dc277a1808903ff1e1a8167e6880f282bf5",
+    "path": "schemas/service.alias-usage.request.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:89bbda99c9b9dcf956cbbfb8d701879992555b98df8dc8ed4c39542524931d4c",
+    "path": "schemas/service.llm-settings.reply.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:9e58d85bc3cdb9c88b34364e32476670125c55fd0d59e5295fe0923e63022003",
+    "path": "schemas/service.llm-settings.request.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:376cbd529ea4b938169951c3556453288f7c8009c1085eee7eba3fc03b93f518",
+    "path": "schemas/service.restore-alias.request.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:6508d25a64a88bac940fa9ab4d0c926da47612e0922202a3b08b77cde49f45c7",
+    "path": "schemas/service.retire-alias.request.schema.json",
+    "repository": "pandops/flowai-flow-registry",
+    "sourceRevision": "c2c5de0399f3d048434f36041800023891b165c7"
+  },
+  {
+    "digest": "sha256:5bb6eea9a1419dd7019c4a1998a83e57e71c277c3ecedd2f13f67c6a1023adc6",
+    "path": "schemas/defs.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:9ee06116336c045dce14d761a6d50e3e4b5cc842c3f12c54885e04ddfa36870f",
+    "path": "schemas/event.archived.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:e61833ebe5f02d6bd62c2b69a5f35bbdd149189c7ed29928a35e046b5caef007",
+    "path": "schemas/event.cancelled.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:3c76c1c4c1bf7a8390c85cb3d64147acb7a61655de25d292e417c99a686cdbb1",
+    "path": "schemas/event.released.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:723dce542a4d56a9bb4dbecc8857b4ca197f91cefd7b3813aa70aa1c17fe858d",
+    "path": "schemas/service.claim-current.reply.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:55a572ea659534944f51d4d0f1c43a9a9972e1bab31b167918bcf78c0a5f30f3",
+    "path": "schemas/service.claim-current.request.schema.json",
+    "repository": "pandops/flowai-task-manager",
+    "sourceRevision": "1398e8cc5a221dc8c39b5180f2af0a75bd826dd3"
+  },
+  {
+    "digest": "sha256:135e754b363a55d5a2f438e55da32f13adc8a891cf750b4c9282960fa4e3e529",
+    "path": "schemas/check-request.schema.json",
+    "repository": "pandops/flowai-executor-docker-openhands",
+    "sourceRevision": "df886aa03b31f297e00f38b332fe5404063b9d8d"
+  },
+  {
+    "digest": "sha256:6928d3e310459c155814216b7206e4da888be58982f96bf51dbef3188821849e",
+    "path": "schemas/executor-event.schema.json",
+    "repository": "pandops/flowai-executor-docker-openhands",
+    "sourceRevision": "df886aa03b31f297e00f38b332fe5404063b9d8d"
+  },
+  {
+    "digest": "sha256:135e754b363a55d5a2f438e55da32f13adc8a891cf750b4c9282960fa4e3e529",
+    "path": "schemas/check-request.schema.json",
+    "repository": "pandops/flowai-executor-k8s-openhands",
+    "sourceRevision": "f32bd44776fa74fca8143ab5650981fe39ac66c6"
+  },
+  {
+    "digest": "sha256:6d00d0b8871f677325eda26f72709d27476b08a0de9786174548c6bc804ea812",
+    "path": "schemas/executor-event.schema.json",
+    "repository": "pandops/flowai-executor-k8s-openhands",
+    "sourceRevision": "f32bd44776fa74fca8143ab5650981fe39ac66c6"
+  }
+]
