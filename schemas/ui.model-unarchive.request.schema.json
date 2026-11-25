@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/ui.model-unarchive.request.schema.json",
+  "title": "model-registry.ui.model-unarchive request",
+  "description": "POST /ui/v1/models/{name}/unarchive; If-Match as the NATS header If-Match. Request headers: team (decimal, never admin), operator_id, request_id, optional team_name.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["params"],
+  "properties": {
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

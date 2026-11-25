@@ -1,0 +1,53 @@
+# model-registry configuration. Every key the service reads is listed here.
+# Values written <...> are required deployment values; the others are
+# defaults the deployment may keep.
+
+http:
+  listen: ":8080" # /v1/livez, /v1/readyz and GET /v1/tasks/{task_id}/litellm-key
+
+db:
+  host: postgres
+  port: 5432
+  user: model_registry
+  password: <generated database password>
+  name: flowai
+  schema: model_registry_schema
+  sslmode: verify-full # only verify-full is accepted
+  ca_file: /run/flowai/stand-ca/ca.pem
+
+nats:
+  url: tls://nats:4222 # tls:// only
+  ca_file: /run/flowai/stand-ca/ca.pem
+  credentials_file: /run/flowai/nats/user.creds # user JWT and seed
+  inbox_prefix: _INBOX.model-registry
+  request_timeout: 5s # timeout of every request model-registry sends
+
+litellm:
+  management_url: http://litellm-gateway-management:4000
+  master_key: <LiteLLM master key>
+  timeout: 10s # timeout of each management API call
+  data_urls: # OPENAI_BASE_URL per registered executor_type
+    executor_docker_openhands: <Docker Compose data-plane URL>
+    executor_k8s_openhands: <Helm data-plane Service URL>
+  api_base_allowed_origins: [] # HTTPS origins allowed as a model api_base
+  availability_refresh_seconds: 60
+  usage_refresh_seconds: 60
+
+claim_token:
+  verification_key: <task-manager Ed25519 public key, base64 standard>
+
+# AES-256-GCM keys of stored task keys; the highest id encrypts new keys.
+encryption_keys:
+  - id: 1
+    key_hex: <64 hex characters>
+
+# HMAC keys of models-list cursors; the highest id signs new cursors.
+cursor_keys:
+  - id: 1
+    key_hex: <64 hex characters>
+
+reconcile_interval: 5s # compensation, archive/unarchive and revocation retries
+outbox:
+  relay_interval: 200ms
+task_keys:
+  backstop: 24h # LiteLLM key expiry, extended while the claim is current

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/event.spend-observed.schema.json",
+  "title": "model-registry.event.spend-observed",
+  "description": "A spend read of a Flow LiteLLM team gave a result different from the previous observation. Subject model-registry.event.spend-observed.pub on ALL_EVENT; headers team (decimal team_id) and Nats-Msg-Id model-registry-<publisher_seq>. Carries no provider credential, master key or virtual key.",
+  "allOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/envelope"
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "publisher",
+    "publisher_seq",
+    "team_id",
+    "occurred_at",
+    "kind",
+    "flow_id",
+    "succeeded",
+    "spend_usd",
+    "budget_reset_at",
+    "observed_at"
+  ],
+  "properties": {
+    "publisher": true,
+    "publisher_seq": true,
+    "team_id": true,
+    "occurred_at": true,
+    "kind": {
+      "const": "spend-observed"
+    },
+    "flow_id": {
+      "$ref": "defs.schema.json#/$defs/id"
+    },
+    "succeeded": {
+      "type": "boolean"
+    },
+    "spend_usd": {
+      "anyOf": [
+        {
+          "$ref": "defs.schema.json#/$defs/usd"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "budget_reset_at": {
+      "$ref": "defs.schema.json#/$defs/nullableTimestamp"
+    },
+    "observed_at": {
+      "$ref": "defs.schema.json#/$defs/timestamp"
+    }
+  }
+}

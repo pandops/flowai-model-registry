@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/ui.models-list.request.schema.json",
+  "title": "model-registry.ui.models-list request",
+  "description": "GET /ui/v1/models. Request headers: team (decimal, never admin), operator_id, request_id, optional team_name. Query values arrive as API Gateway forwards them: limit as a JSON number when it is an integer, otherwise as the raw string (answered 400 invalid_pagination); archived as a boolean or the raw string.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "limit": {
+          "type": ["integer", "string"]
+        },
+        "cursor": {
+          "type": "string"
+        },
+        "archived": {
+          "type": ["boolean", "string"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.flows-status.reply.schema.json",
+  "title": "model-registry.service.flows-status reply",
+  "description": "Status 200 from cached observations only (no LiteLLM call). usage is null when no budget is configured, the latest spend read failed or none succeeded. Reply header status carries the HTTP status; an error reply body is the error object.",
+  "anyOf": [
+    {
+      "$ref": "defs.schema.json#/$defs/error"
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["flows"],
+      "properties": {
+        "flows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["flow_id", "models", "usage"],
+            "properties": {
+              "flow_id": {
+                "$ref": "defs.schema.json#/$defs/id"
+              },
+              "models": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["model_alias", "availability"],
+                  "properties": {
+                    "model_alias": {
+                      "type": "string"
+                    },
+                    "availability": {
+                      "enum": ["active", "paused", "unavailable", "no_access"]
+                    }
+                  }
+                }
+              },
+              "usage": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "spend_usd",
+                      "budget_reset_at",
+                      "max_budget_usd",
+                      "budget_period",
+                      "observed_at"
+                    ],
+                    "properties": {
+                      "spend_usd": {
+                        "$ref": "defs.schema.json#/$defs/usd"
+                      },
+                      "budget_reset_at": {
+                        "$ref": "defs.schema.json#/$defs/nullableTimestamp"
+                      },
+                      "max_budget_usd": {
+                        "type": "string"
+                      },
+                      "budget_period": {
+                        "enum": ["day", "week", "month"]
+                      },
+                      "observed_at": {
+                        "$ref": "defs.schema.json#/$defs/timestamp"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

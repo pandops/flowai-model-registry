@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/service.remove-flow-team.request.schema.json",
+  "title": "model-registry.service.remove-flow-team request",
+  "description": "Caller: flow-registry only, after a Flow create whose commit failed once apply-flow-team had succeeded. Header team (decimal team_id) and request_id; body team_id must equal it. Idempotent: a Flow with no LiteLLM team is already removed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body"],
+  "properties": {
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team_id", "flow_id"],
+      "properties": {
+        "team_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        },
+        "flow_id": {
+          "$ref": "defs.schema.json#/$defs/id"
+        }
+      }
+    }
+  }
+}

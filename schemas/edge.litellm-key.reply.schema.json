@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/edge.litellm-key.reply.schema.json",
+  "title": "GET /v1/tasks/{task_id}/litellm-key response",
+  "description": "HTTP edge for Executors, authenticated by Authorization: Bearer <claim token>. 200 with the three values; errors 404 claim_not_current, 503 service_unavailable or broker_unavailable, 422 configuration_error with failure_reason llm_configuration_incomplete, 400 invalid_request for a malformed task_id.",
+  "anyOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["OPENAI_BASE_URL", "OPENAI_MODEL", "OPENAI_API_KEY"],
+      "properties": {
+        "OPENAI_BASE_URL": {
+          "type": "string",
+          "minLength": 1
+        },
+        "OPENAI_MODEL": {
+          "$ref": "defs.schema.json#/$defs/modelAlias"
+        },
+        "OPENAI_API_KEY": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "enum": [
+            "claim_not_current",
+            "service_unavailable",
+            "broker_unavailable",
+            "configuration_error",
+            "invalid_request"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "failure_reason": {
+          "const": "llm_configuration_incomplete"
+        }
+      }
+    }
+  ]
+}

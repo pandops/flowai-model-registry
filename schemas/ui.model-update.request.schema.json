@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowai.local/schemas/model-registry/ui.model-update.request.schema.json",
+  "title": "model-registry.ui.model-update request",
+  "description": "PUT /ui/v1/models/{name}; If-Match as the NATS header If-Match. Request headers: team (decimal, never admin), operator_id, request_id, optional team_name.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["params", "body"],
+  "properties": {
+    "params": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "provider_model"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]{1,64}$"
+        },
+        "provider_model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "api_base": {
+          "type": ["string", "null"]
+        },
+        "api_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "clear_api_key": {
+          "type": "boolean"
+        },
+        "paused": {
+          "type": "boolean"
+        },
+        "pricing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "input_usd_per_million_tokens",
+            "output_usd_per_million_tokens"
+          ],
+          "properties": {
+            "input_usd_per_million_tokens": {
+              "$ref": "defs.schema.json#/$defs/usd"
+            },
+            "output_usd_per_million_tokens": {
+              "$ref": "defs.schema.json#/$defs/usd"
+            }
+          }
+        }
+      }
+    }
+  }
+}
